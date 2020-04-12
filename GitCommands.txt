@@ -1,0 +1,95 @@
+Supongamos que estoy en el directorio que quiero usar como raíz de mi repositorio.
+D:\ZTrabajo\GIT_Home\GIT_repositoryPrueba
+
+Entro del directorio que quiero considerar como raiz hago
+D:\ZTrabajo\GIT_Home\GIT_repositoryPrueba>git init
+
+Creará un subdirectorio oculto llamado .git (que es como el .svn) y que contiene información interna para gestionar el versionado.
+y a partir de ahí lo indicará en la consola bash de git como (master)
+
+WORKING DIRECTORY
+STAYING AREA
+REPOSITORY
+
+
+"COMANDOS GIT"
+"------------"
+
+-	git init
+(ya visto)
+
+-	git status
+Sirve para ver el estado de los ficheros que cuelgan del punto donde he puesto dicho comando. Si hay alguno que pueda ser 
+comiteado, o updatable o añadible o cualquier otra cosa.
+
+- git add <file>
+Añade un fichero al Staying Area. No añade directorios, sino archivos. Así que no podremos añadir un directorio vacío.
+Si creamos un directorio y dentro de él un fichero y añadimos ese fichero, se creará el directorio como parte de la estructura.
+
+- git add .
+Añade todos los archivos que estén en disposición de ser añadidos.
+
+- git rm --cached <file>
+Deshace la acción de git add <file>
+
+-	git config --global user.email "elgatoserio@"
+- git config --global user.name "mi nombre"
+Con esto Git establece la identidad de la cuenta del usuario por defecto
+Si elimino el parámetro --global, lo establezco sólo para ese repositorio en concreto.
+
+- git commit
+Persiste los cambios del Staying Area al Repository, pero para eso Git tiene que saber qué usuario somos
+a cada fichero le asigna un identificador, no sé si de archivo o de versión.
+Te habilita el editor de comandos (el vi, u otro indicado en la instalación) en donde introduces un comentario para informar de los cambios
+
+- git commit -m "mi comentario entre comillas"
+Si quiero evitar dicho editor de comandos para incluir un comentario, puedo poner
+
+Cada vez que haces un commit te crea una huella o token o id del snapshot de tu rama viva (master por defecto)
+
+- git log
+Es igual que en el SVN. Te muestra información de las versiones de un fichero, con sus comentarios en el commit.
+
+- git checkout -- <file>
+Hace lo que en SVN sería un revert. Deshace los cambios introducidos en un archivo.
+
+- git diff <file>
+Nos indica las diferencias existentes entre el contenido de mi fichero y el contenido del mismo fichero en el repositorio.
+
+Parece ser que para hacer un commit hay que hacer antes un add.
+
+Para ignorar archivos, debo crear en la raíz de mi rama [D:\ZTrabajo\GIT_Home\GIT_repositoryPrueba>] (donde hice git init) un fichero llamado
+.gitignore, en donde iré introduciendo la lista de archivos o directorios que quiero ignorar.
+Si tengo un directorio llamado D:\ZTrabajo\GIT_Home\GIT_repositoryPrueba\carpetaAIgnorar, simplemente añadiría una línea de la siguiente manera:
+carpetaAIgnorar
+Y listo.
+
+- git branch
+Muestra una lista de ramas existentes, poniendo en verde la rama en donde tengo activo mi git.
+Suele ser master si no se ha solicitado lo contrario.
+
+- git branch <nombreDeLaNuevaRama>
+Creamos una rama a partir de donde estamos. No sabría decir ahora si es a partir del master, o a partir de donde estemos ubicados
+en el momento de introducir dicho comando.
+
+- git checkout <nombreDeLaNuevaRama>
+Provoca que se cambie a la rama viva indicada.
+
+HASTA AQUÍ HE CREADO UNA RAMA VIVA EN MI ORDENADOR ASOCIADA A MI CUENTA, PERO NADA MÁS. PARA SUBIRLA A LA RED, HAY QUE:
+Tener un usuario de github creado (como es mi caso).
+A través de la página web de github y una vez logado, crear un repositorio en https://github.com/new
+Si yo me creara un repositorio llamado "GIT_repositoryPrueba", la url restante sería como sigue abajo
+https://github.com/javierBernabe/GIT_repositoryPrueba.git
+
+- git remote add origin https://github.com/javierBernabe/GIT_repositoryPrueba.git
+Con ese comando establezco la raíz de mi Staying Area de mi disco duro a mi repositorio de GitHub elegido.
+Me figuro que tendré que hacerlo en la raíz de la rama viva, en este caso D:\ZTrabajo\GIT_Home\GIT_repositoryPrueba
+
+- git push -u origin master
+Te abre una ventana para introducir tu usuario y contraseña de GitHub
+Subo todos mis archivos a dicho repositorio (me figuro que subo de mi Staying Area al Repository y concretamente la rama master)
+
+Una vez subido, ya puede ser descargado a cualquier ordenador (o a cualquier directorio si me apetece tener el mismo repositorio en diferentes partes de mi disco duro, total, peores tonterías se han visto antes)
+
+- git clone https://github.com/javierBernabe/GIT_repositoryPrueba.git
+Descarga a tu disco duro todo el repositorio que tenías subido en esa url.
