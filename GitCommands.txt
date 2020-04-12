@@ -14,9 +14,11 @@ REPOSITORY
 
 "COMANDOS GIT"
 "------------"
+- git
+Te devuelve la help o ayuda con los parámetros que tiene el comando git.
 
 -	git init
-(ya visto)
+Indico a git que considero ese directorio como un directorio raíz de algún repositorio (que potencialmente podría querer luego subir a mi cuenta git)
 
 -	git status
 Sirve para ver el estado de los ficheros que cuelgan del punto donde he puesto dicho comando. Si hay alguno que pueda ser 
@@ -93,3 +95,7 @@ Una vez subido, ya puede ser descargado a cualquier ordenador (o a cualquier dir
 
 - git clone https://github.com/javierBernabe/GIT_repositoryPrueba.git
 Descarga a tu disco duro todo el repositorio que tenías subido en esa url.
+
+
+
+
